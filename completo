@@ -563,7 +563,7 @@ int main()
 							int numero;
 							int numerito[100];
 							int *p_numerito = &numerito[0];
-							int menor = numerito[0];
+							int menor = INT_MAX;
 							int pos = 0;
 							
 							printf("ingrese cuantos numeros quiere ingresar:   ");
@@ -572,15 +572,21 @@ int main()
 							for(i = 0; i < numero; i ++)
 							{
 								printf("ingrese numero:  ");
-								scanf("%d", &numerito[i]);
+								scanf("%d", &(*(p_numerito + i)));
 							}
 							
 							
 							for(i = 0; i < numero; i ++)
 							{
-								if(*(p_numerito) < menor){
+								printf("numero %d es %d\n", i, *(p_numerito + i));
+							}
+							
+							for(i = 0; i < numero; i ++)
+							{
+								if(*(p_numerito + i) < menor)
+								{
 									
-									menor = *(p_numerito);
+									menor = (*(p_numerito + i));
 									pos = i;
 								}
 							}
